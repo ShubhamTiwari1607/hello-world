@@ -3,10 +3,17 @@ using namespace std;
 
 long long solve(int a){
     long long product = 1 ;
+    if(a < 0){
+        product*=-1;
+    }
     while(a != 0){
+       if(!isdigit(a%10)){
+        cout << "Wrong input\n";
+        return 0;}
        product*=(a%10);
        a/=10;
     }
+    
     return product;
 }
  
@@ -20,6 +27,7 @@ int main(){
     size++;
  }
  vector<int> res(size,0);
+
  for(int i = 0 ; i <size ;i++){
     long long product = solve(arr[i]);
     res[i] = product ;
